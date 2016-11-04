@@ -4,6 +4,8 @@ var app = require('./server');
 var db = app.get('db');
 
 module.exports = {
+
+  //------PRODUCTS ENDPOINT FUNCTIONS---------
     getAll: function(req, res){
         db.read_products(function(err, products){
           res.json(products);
@@ -48,6 +50,32 @@ module.exports = {
         console.log(id, price)
         res.send( "The new Price for productid " + id + " is now: " + price )
       })
-    }
+    },
+
+    //-------USER ENDPOINTS--------
+    new_user: function(req, res) {
+      db.new_user(
+        [
+          req.body.username,
+          req.body.password,
+          req.body.email,
+          req.body.first_name,
+          req.body.last_name,
+          req.body.phone_number,
+          req.body.address_street,
+          req.body.address_city,
+          req.body.address_zip,
+          req.body.address_state
+        ],
+
+        function(err, user) {
+          if(err) console.log(err, "This was not completed correctly");
+        res.json(req.body.username + " has been added as a new user!");
+      })
+      console.log(req.body);
+    },
+
+
+
 
 }

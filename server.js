@@ -18,13 +18,16 @@ var db = app.get('db');
 
 
 var servCtrl = require('./servCtrl');
-//---------- EndPoints -----------
+//---------- Products EndPoints -----------
 app.post('/products', servCtrl.create);
 app.get('/products', servCtrl.getAll);
 app.get('/products/:id', servCtrl.getOne);
 app.put('/products/update/description/:id', servCtrl.update_description);
 app.put('/products/update/price/:id', servCtrl.update_price);
 app.delete('/products/delete/:id', servCtrl.destroy);
+
+//---------User Endpoints------
+app.post('/newUser', servCtrl.new_user);
 
 //----------Server------------
 app.listen('3232', function(){
