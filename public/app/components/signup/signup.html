@@ -1,0 +1,111 @@
+<div class="container">
+
+
+  <form class="form-horizontal">
+    <fieldset>
+
+    <!-- Form Name -->
+    <legend>Sign Up</legend>
+
+      <!-- Username input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="name">Username</label>
+        <div class="col-md-4">
+        <input id="name" ng-model="user.username" name="name" type="text" placeholder="Enter your Username" class="form-control input-md" required="" >
+
+        </div>
+      </div>
+
+      <!-- First Name input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="name">First Name</label>
+        <div class="col-md-4">
+        <input id="name" ng-model="user.first_name" name="name" type="text" placeholder="Enter your first name" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Last Name input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="name">Last Name</label>
+        <div class="col-md-4">
+        <input id="name" ng-model="user.last_name" name="name" type="text" placeholder="Enter your Last name" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Email input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="email">Email</label>
+        <div class="col-md-4">
+        <input id="email" ng-model="user.email" name="email" type="text" placeholder="Enter your email id" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Password input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="password">Password</label>
+        <div class="col-md-4">
+          <input id="password" ng-model="user.password" name="password" type="password" placeholder="Enter a password" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Phone Number input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="contact">Phone Number</label>
+        <div class="col-md-4">
+        <input id="contact" ng-model="user.phone_number" name="contact" type="number" placeholder="Enter your phone number" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Street address input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="street">Street</label>
+        <div class="col-md-4">
+        <input id="street" ng-model="user.address_street" name="street" type="text" placeholder="Enter your street" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- City input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="city">City</label>
+        <div class="col-md-4">
+        <input id="city" ng-model="user.address_city" name="city" type="text" placeholder="Enter your city" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- State input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="State">State</label>
+        <div class="col-md-4">
+        <input id="city" ng-model="user.address_state" name="city" type="text" placeholder="Enter your State" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- ZipCode input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="area">Area</label>
+        <div class="col-md-4">
+        <input id="area" ng-model="user.address_zip" name="area" type="text" placeholder="Enter your zipcode" class="form-control input-md" required="">
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label" for="signup"></label>
+        <div class="col-md-4">
+          <button id="signup" ng-click="newUser(user)" name="signup" class="btn btn-success">Sign Up</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+</div>

@@ -5,9 +5,11 @@ var massive = require('massive');
 var cors = require('cors');
 var passwords = require('./config');
 
+
 var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
+app.use(express.static(__dirname + '/public'));
 
 
 var connectionString = passwords.password;
