@@ -7,4 +7,9 @@ $scope.user = {};
     signupServ.newUser(user).then
   }
 
+
+  $scope.formValidation = function(user) {
+    signupServ.formValidation(user).then
+  }
+
 });
