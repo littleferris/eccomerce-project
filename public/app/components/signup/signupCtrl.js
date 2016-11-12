@@ -1,15 +1,11 @@
 angular.module("ecommerce")
-  .controller("signupCtrl", function($scope, signupServ) {
+  .controller("signupCtrl", function($scope, signupServ,$location) {
 
 $scope.user = {};
 
-  $scope.newUser = function(user) {
-    signupServ.newUser(user).then
-  }
+  $scope.executeNewUser = function(user) {
+    signupServ.executeNewUser(user);
 
-
-  $scope.formValidation = function(user) {
-    signupServ.formValidation(user).then
   }
 
 });

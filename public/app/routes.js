@@ -11,7 +11,20 @@ angular.module( 'ecommerce' )
         url:'/signup',
         templateUrl:"./app/components/signup/signup.html",
         controller: 'signupCtrl'
-      });
+      })
+
+      .state('store', {
+        url:'/store',
+        templateUrl:"./app/components/store/store.html"
+        // controller: 'storeCtrl'
+      })
+
+      .state('cart', {
+        url:'/cart',
+        templateUrl:"./app/components/cart/cart.html"
+        // controller: 'cartCtrl'
+      })
+
 
 
       $urlRouterProvider

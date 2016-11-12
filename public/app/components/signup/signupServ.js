@@ -1,5 +1,5 @@
 angular.module("ecommerce")
-  .service("signupServ", function($http, $q) {
+  .service("signupServ", function($http, $q, $location) {
   // CRUD FUNCTIONS
   // ============================================================
   // this.getCollection = function(id) {
@@ -29,36 +29,53 @@ angular.module("ecommerce")
 
 
   // --------FORM VALIDATION FUNCTIONS-----------
-  function formValidation(user) {
+  this.formValidation = function(user) {
     var userPass = user.password;
     var userName = user.username;
+    var firstName = user.first_name;
+    var lastName = user.last_name;
     var ucity = user.address_city;
     var userZip = user.address_zip;
     var userEmail = user.email;
     var userStreet = user.address_street;
 
-    if(userPass_validation(userPass,7,12)) {
+    const validPass = userPass_validation(userPass);
+    const validUsername = alphanumeric(userName);
+    const validFName = allLetter(firstName);
+    const validLName = allLetter(lastName);
+    const validEmail = validateEmail(userEmail);
+    const validZip = allnumeric(userZip);
+    const validSt = alphanumeric(userStreet);
 
-      if(allLetter(userName)) {
+    console.log(validPass);
+    console.log(validUsername);
+    console.log(validFName);
+    console.log(validLName);
+    console.log(validEmail);
+    console.log(validZip);
+    if (
+      validPass&&
+      validUsername&&
+      validFName&&
+      validLName&&
+      validEmail&&
+      validZip
+    ) {
 
-        if(allnumeric(userZip)) {
-
-          if(validateEmail(userEmail)) {
-
-            if(alphanumeric(userStreet)) {
-
-            }
-          }
-        }
-      }
+      console.log("New user created");
+      return true;
     }
-  return false;
+    console.log("Error");
+    return false;
+
   };
+
 
   //----Name validation---------
   function allLetter(userName) {
+    console.log(userName);
     var letters = /^[A-Za-z]+$/;
-    if(userName.value.match(letters)) {
+    if(userName.trim().match(letters)) {
       return true;
     }
     else {
@@ -70,8 +87,9 @@ angular.module("ecommerce")
 
   //----email validation-------
   function validateEmail(userEmail){
+    console.log(userEmail);
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    if(userEmail.value.match(mailformat)) {
+    if(userEmail.match(mailformat)) {
       return true;
     }
     else
@@ -83,39 +101,43 @@ angular.module("ecommerce")
   };
 
   //----password validation------
-  function userPass_validation(userPass,mx,my) {
-    var userPass_len = userPass.value.length;
-    if (userPass_len == 0 ||userPass_len >= my || userPass_len < mx){
-      alert("Password should not be empty / length be between "+mx+" to "+my);
-      // userPass.focus();
-      return false;
-      }
-      return true;
-  };
+    function userPass_validation(userPass) {
+        var p = userPass,
+            errors = [];
+        if (p.length < 8) {
+            errors.push("Your password must be at least 8 characters");
+        }
+        if (p.search(/[a-z]/i) < 0) {
+            errors.push("Your password must contain at least one letter.");
+        }
+        if (p.search(/[0-9]/) < 0) {
+            errors.push("Your password must contain at least one digit.");
+        }
+        if (errors.length > 0) {
+            alert(errors.join("\n"));
+            return false;
+        }
+        return true;
+    }
 
   //----number validation------
   function allnumeric(userZip) {
-    var numbers = /^[0-9]+$/;
-    if(userZip.value.match(numbers)) {
-      return true;
-    } else {
-        alert('ZIP code must have numeric characters only');
-        // userZip.focus();
-        return false;
-      }
+    return !/\D/.test(userZip.trim());
+    console.log(userZip);
   };
 
-  //----street address validation------
+  //----alphanumeric validation------
   function alphanumeric(userStreet) {
-    var letters = /^[0-9a-zA-Z]+$/;
-    if(userStreet.value.match(letters)) {
-      return true;
-    } else {
-        alert('User address must have alphanumeric characters only');
-        // userStreet.focus();
-        return false;
-      }
+    return !/\W/.test(userStreet.trim());
   };
+
+  //-------If fields are validated create user
+    this.executeNewUser = function(user) {
+      if ( this.formValidation(user) === true ) {
+        this.newUser(user);
+        $location.path('/');
+      }
+    }
 
 
 });

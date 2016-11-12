@@ -30,6 +30,7 @@ app.delete('/products/delete/:id', servCtrl.destroy);
 
 //---------User Endpoints------
 app.post('/newUser', servCtrl.new_user);
+// app.login('/user', servCtrl.login)
 
 //----------Server------------
 app.listen('3232', function(){

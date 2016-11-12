@@ -38,7 +38,7 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="email">Email</label>
         <div class="col-md-4">
-        <input id="email" ng-model="user.email" name="email" type="text" placeholder="Enter your email id" class="form-control input-md" required="">
+        <input id="email" ng-model="user.email" name="email" type="text" placeholder="Enter your email" class="form-control input-md" required="">
 
         </div>
       </div>
@@ -90,7 +90,7 @@
 
       <!-- ZipCode input-->
       <div class="form-group">
-        <label class="col-md-4 control-label" for="area">Area</label>
+        <label class="col-md-4 control-label" for="area">Zip</label>
         <div class="col-md-4">
         <input id="area" ng-model="user.address_zip" name="area" type="text" placeholder="Enter your zipcode" class="form-control input-md" required="">
 
@@ -101,10 +101,10 @@
       <div class="form-group">
         <label class="col-md-4 control-label" for="signup"></label>
         <div class="col-md-4">
-          <button id="signup" ng-click="newUser(user)" name="signup" class="btn btn-success">Sign Up</button>
+          <button id="signup" ng-click="executeNewUser(user)" name="signup" class="btn btn-success">Sign Up</button>
         </div>
       </div>
-
+<!-- newUser(user) -->
     </fieldset>
   </form>
 
