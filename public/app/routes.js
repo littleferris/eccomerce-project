@@ -15,8 +15,8 @@ angular.module( 'ecommerce' )
 
       .state('store', {
         url:'/store',
-        templateUrl:"./app/components/store/store.html"
-        // controller: 'storeCtrl'
+        templateUrl:"./app/components/store/store.html",
+        controller: 'storeCtrl'
       })
 
       .state('cart', {
